@@ -21,3 +21,7 @@ export const removeTodo = (id: number) => {
 export const editTodo = (todo: ITodoList) => {
     return http.put<ITodoList>(`/todos/${todo.id}`, todo)
 }
+
+export const editTodoDate = (todo: ITodoList) => {
+    return http.put<ITodoList>(`/todos/${todo.id}`, todo)
+}

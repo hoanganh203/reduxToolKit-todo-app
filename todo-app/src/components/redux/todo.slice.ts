@@ -1,7 +1,9 @@
 import { createReducer, createAction, createSlice, PayloadAction, current, createAsyncThunk, AsyncThunk } from '@reduxjs/toolkit'
 import { ITodoList } from '../../interfaces/todoList'
-import { addTodo, editTodo, getAllTodos, getOneTodo, removeTodo } from '../../api/todoApi'
+import { addTodo, editTodo, editTodoDate, getAllTodos, getOneTodo, removeTodo } from '../../api/todoApi'
 import { notification, notificationError } from '../../notification'
+import { useSelector } from 'react-redux'
+import { RootState } from './store'
 
 // Khai báo các sự kiện chạy của Redux AsyncThunk
 
@@ -18,6 +20,8 @@ interface TodoState {
     priority: string,
     loading: boolean,
     dataOne: ITodoList | null
+    dataOneDate: ITodoList | null
+
 }
 
 // Tạo ra 1 kho chung
@@ -27,7 +31,9 @@ const initialState: TodoState = {
     status: "All",
     priority: "",
     loading: false,
-    dataOne: null
+    dataOne: null,
+    dataOneDate: null
+
 }
 
 // Mình bắt đầu làm việc với API bằng createAsyncThunk
@@ -65,6 +71,16 @@ export const editTodoList = createAsyncThunk(
     }
 )
 
+export const editTodoDateList = createAsyncThunk(
+    'todo/editTodoDate',
+    async (todo: ITodoList) => {
+        const reponse = await editTodoDate(todo)
+        return reponse.data
+    }
+)
+
+
+
 //  Ở đây mình bắt đầu làm việc với createSlice để để làm việc với các action ở trên
 
 const todoSlice = createSlice({
@@ -91,6 +107,10 @@ const todoSlice = createSlice({
             const postId = action.payload
             const foundTodo = state.todoList.find(todo => todo.id === postId) || null
             state.dataOne = foundTodo
+        }, startEditDate: (state, action) => {
+            const postId = action.payload
+            const foundTodo = state.todoList.find(todo => todo.id === postId) || null
+            state.dataOneDate = foundTodo
         }
     },
     // extraReducers bắt đàu làm việc với API và xử lý bất đồng bộ
@@ -118,6 +138,17 @@ const todoSlice = createSlice({
                 }
                 return false // return false để tiếp tực vòng lặp nếu không tìm ra
             })
+        }).addCase(editTodoDateList.fulfilled, (state, action) => {
+            const postId = action.payload.id //EDit ta sẽ nhận 1 id của mảng todoList
+            state.todoList.some((todo, index) => { //sau đó dùng SOME || FIND để tìm phần từ trong mảng
+                if (todo.id === postId) {
+                    notification()
+                    //kiếm tra trùng nhau hay không
+                    state.todoList[index] = action.payload //nếu trùng nhau thì sẽ update đúng phần tử index
+                    return true // return true để thoát vòng lặp
+                }
+                return false // return false để tiếp tực vòng lặp nếu không tìm ra
+            })
         }).addMatcher<PendingAction>( //lấy ra các trang thái bắt đầu hay kết thúc của action
             (action) => action.type.endsWith('/pending'),
             (state, action) => {
@@ -137,7 +168,7 @@ const todoSlice = createSlice({
     }
 
 })
-export const { checkPriorityTodo, checkTodo, searchTodo, startEdit } = todoSlice.actions
+export const { checkPriorityTodo, checkTodo, searchTodo, startEdit, startEditDate } = todoSlice.actions
 const todoReducer = todoSlice.reducer
 export default todoReducer
 

@@ -4,7 +4,7 @@ import { BiMessageSquareAdd } from 'react-icons/bi'
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../redux/store';
 import { Fragment, useEffect, useState } from 'react';
-import { addTodoList, editTodoList, getTodoList, removeTodoList, startEdit } from '../redux/todo.slice';
+import { addTodoList, editTodoList, getTodoList, removeTodoList, startEdit, startEditDate } from '../redux/todo.slice';
 import Loading from '../../loading/loading';
 
 
@@ -62,6 +62,7 @@ const TodoList = () => {
   }
   // lấy dữ liệu DataOne
   const editTodo = useSelector((state: RootState) => state.todo.dataOne)
+
   // Khi dữ liệu DataOne !== null thì useEffect sẽ chạy
   useEffect(() => {
     if (editTodo) {  //Điều kiện editTodo phải có dữ liệu mới chạy dispatch
@@ -69,12 +70,18 @@ const TodoList = () => {
         id: editTodo.id,
         name: editTodo.name,
         prioriry: editTodo.prioriry,
-        completed: !editTodo.completed
+        completed: !editTodo.completed,
+        startDate: editTodo.startDate,
+        dueDate: editTodo.dueDate,
+        statusDate: true
       }
       dispatch(editTodoList(newData)) // dispatch sẽ gửi đến slice để xử lý API
     }
   }, [editTodo])
 
+  const handleEditDate = (id: number) => {
+    dispatch(startEditDate(id))
+  }
 
   // Lấy danh dữ liệu
   useEffect(() => {
@@ -92,7 +99,7 @@ const TodoList = () => {
           </Fragment>
         )}
         {!loading && todoList?.map((item) => (
-          <Todo item={item} key={item.id} handleRemove={handleRemove} handleEdit={handleEdit} />
+          <Todo item={item} key={item.id} handleRemove={handleRemove} handleEdit={handleEdit} handleEditDate={handleEditDate} />
         ))}
       </Col>
       <Col span={24}>

@@ -1,34 +1,31 @@
 {
   "todos": [
     {
-      "id": 5,
+      "id": 1,
+      "name": "php",
+      "prioriry": "Medium",
+      "completed": false,
+      "startDate": "2023-07-04T18:35:43.857Z",
+      "dueDate": "2023-07-05T18:35:50.891Z",
+      "statusDate": true
+    },
+    {
+      "id": 2,
       "name": "React",
+      "prioriry": "High",
+      "completed": false,
+      "startDate": "2023-07-04T18:36:09.050Z",
+      "dueDate": "2023-07-05T18:36:20.036Z",
+      "statusDate": true
+    },
+    {
+      "id": 3,
+      "name": "java",
       "prioriry": "Low",
-      "completed": false
-    },
-    {
-      "id": 6,
-      "name": "Php",
-      "prioriry": "Medium",
-      "completed": false
-    },
-    {
-      "id": 7,
-      "name": "Angular",
-      "prioriry": "Medium",
-      "completed": true
-    },
-    {
-      "id": 8,
-      "name": "Bootstrap",
-      "prioriry": "High",
-      "completed": false
-    },
-    {
-      "id": 9,
-      "name": "Tailwind",
-      "prioriry": "High",
-      "completed": true
+      "completed": false,
+      "startDate": "2023-07-04T18:37:04.685Z",
+      "dueDate": "2023-07-05T18:37:09.803Z",
+      "statusDate": true
     }
   ]
 }

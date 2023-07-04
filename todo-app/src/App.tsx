@@ -11,7 +11,7 @@ function App() {
   return (
     <div
       style={{
-        width: 500,
+        width: 1000,
         margin: '0 auto',
         display: 'flex',
         flexDirection: 'column',
@@ -22,7 +22,7 @@ function App() {
         height: '90vh',
       }}
     >
-      <Title style={{ textAlign: 'center' }}>TODO APP with REDUX</Title>
+      <Title style={{ textAlign: 'center' }}>TODO APP with REDUX TOOLKIT</Title>
       <Filters />
       <Divider />
       <TodoList />
