@@ -4,7 +4,7 @@ import { BiMessageSquareAdd } from 'react-icons/bi'
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../redux/store';
 import { Fragment, useEffect, useState } from 'react';
-import { addTodoList, editTodoList, getTodoList, removeTodoList, startEdit, startEditDate } from '../redux/todo.slice';
+import { addTodoList, editTodoList, getTodoList, removeTodoList, startEdit, startEditDate, startUpdate } from '../redux/todo.slice';
 import Loading from '../../loading/loading';
 
 
@@ -83,6 +83,10 @@ const TodoList = () => {
     dispatch(startEditDate(id))
   }
 
+  const handleUpdate = (id: number) => {
+    dispatch(startUpdate(id))
+  }
+
   // Lấy danh dữ liệu
   useEffect(() => {
     dispatch(getTodoList())
@@ -92,6 +96,7 @@ const TodoList = () => {
 
   return (
     <Row style={{ height: 'calc(100% - 40px)' }}>
+
       <Col span={24} style={{ height: 'calc(100% - 40px)', overflowY: 'auto' }}>
         {loading && (
           <Fragment>
@@ -99,7 +104,7 @@ const TodoList = () => {
           </Fragment>
         )}
         {!loading && todoList?.map((item) => (
-          <Todo item={item} key={item.id} handleRemove={handleRemove} handleEdit={handleEdit} handleEditDate={handleEditDate} />
+          <Todo item={item} key={item.id} handleRemove={handleRemove} handleEdit={handleEdit} handleEditDate={handleEditDate} handleUpdate={handleUpdate} />
         ))}
       </Col>
       <Col span={24}>
