@@ -1,4 +1,5 @@
 export interface ITodoList {
+    [x: string]: any;
     id?: number;
     name: string;
     prioriry: string,
