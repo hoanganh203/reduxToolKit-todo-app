@@ -4,6 +4,7 @@ import { checkPriorityTodo, checkTodo, searchTodo } from '../redux/todo.slice';
 
 const { Search } = Input;
 
+
 export default function Filters() {
 
 

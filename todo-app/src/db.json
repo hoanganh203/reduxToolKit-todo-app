@@ -2,97 +2,36 @@
   "todos": [
     {
       "id": 1,
-      "name": "php",
+      "name": "React JS",
       "prioriry": "Medium",
-      "completed": true,
-      "startDate": "2023-07-04T18:35:43.857Z",
-      "dueDate": "2023-07-05T18:35:50.891Z",
+      "completed": false,
+      "startDate": "2023-07-05T09:19:50.217Z",
+      "dueDate": "2023-07-06T09:19:52.822Z",
       "statusDate": true
     },
     {
       "id": 2,
-      "name": "React update",
-      "prioriry": "High",
+      "name": "Type Script",
+      "prioriry": "Medium",
       "completed": true,
-      "startDate": "2023-07-06T08:16:31.130Z",
-      "dueDate": "2023-07-06T08:17:24.535Z",
-      "statusDate": true
-    },
-    {
-      "id": 3,
-      "name": "java update 1",
-      "prioriry": "High",
-      "completed": true,
-      "startDate": "2023-07-05T08:59:10.733Z",
-      "dueDate": "2023-07-08T08:59:14.479Z",
-      "statusDate": true
-    },
-    {
-      "id": 4,
-      "name": "NextJs",
-      "prioriry": "High",
-      "completed": true,
-      "startDate": "2023-07-04T18:42:06.581Z",
-      "dueDate": "2023-07-05T18:42:09.603Z",
+      "startDate": "2023-07-04T07:12:17.091Z",
+      "dueDate": "2023-07-13T07:12:19.710Z",
       "statusDate": true
     },
     {
       "id": 5,
-      "name": "angular",
+      "name": "Php backend update",
       "prioriry": "Medium",
-      "completed": true,
-      "startDate": "2023-07-04T18:42:31.440Z",
-      "dueDate": "2023-07-07T18:42:35.408Z",
+      "completed": false,
+      "startDate": "2023-07-05T09:19:32.262Z",
+      "dueDate": "2023-07-08T09:19:34.795Z",
       "statusDate": true
     },
     {
-      "id": 6,
-      "name": "Php1",
-      "prioriry": "Medium",
-      "completed": true,
-      "startDate": "2023-07-04T19:27:24.071Z",
-      "dueDate": "2023-07-05T19:27:26.522Z",
-      "statusDate": true
-    },
-    {
-      "id": 11,
       "name": "qưe",
       "prioriry": "Medium",
       "completed": false,
-      "dueDate": "2023-07-05T19:48:28.817Z",
-      "statusDate": true
-    },
-    {
-      "id": 14,
-      "name": "php update",
-      "prioriry": "High",
-      "startDate": "2023-07-07T08:59:32.616Z",
-      "dueDate": "2023-07-10T08:59:35.300Z",
-      "statusDate": true
-    },
-    {
-      "id": 15,
-      "name": "php update",
-      "prioriry": "Low",
-      "startDate": "2023-07-07T08:59:56.280Z",
-      "dueDate": "2023-07-10T08:59:59.064Z",
-      "statusDate": true
-    },
-    {
-      "id": 16,
-      "name": "Test update",
-      "prioriry": "Medium",
-      "startDate": "2023-07-06T09:01:00.857Z",
-      "dueDate": "2023-07-10T09:01:04.254Z",
-      "statusDate": true
-    },
-    {
-      "id": 17,
-      "name": "tesst update",
-      "prioriry": "Low",
-      "startDate": "2023-07-06T09:01:31.694Z",
-      "dueDate": "2023-07-08T09:01:33.311Z",
-      "statusDate": true
+      "id": 6
     }
   ]
 }
